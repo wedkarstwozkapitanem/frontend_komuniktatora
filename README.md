@@ -1,1 +1,1 @@
-# boczne_menu
+# boczne menu dla np. komunikatora
