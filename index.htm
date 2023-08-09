@@ -1,1 +1,212 @@
-<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PIXI - PRZEGLODAJ</title><meta name="description" content="Pixi.Twoje miejsce do rozmów,rozrywki i czatu z kapitanem"><meta name="author" content="Dominik Kapitan Łempicki"><link rel="shortcut icon" href="foty/ikonapixi.ico"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><script src="js/menu.js" type="text/javascript" charset="UTF-8" defer></script><link rel="stylesheet" type="text/css" href="css/style.css" charset="UTF-8"></head><body><style>#ladowanie{display:flex;justify-content:center;align-items:center;background-color:rgba(0,0,255,.116);width:100%;height:100vh;text-align:center;z-index:248}#ladowanie img{animation:4s rozmiar infinite}@keyframes rozmiar{0%,100%{width:48px}50%{width:228px}}</style><div id="ladowanie"><div><img src="foty/logo.png" alt="ładowanie"><h1>Ładowanie zasobów</h1><noscript>Ta witryna do prawidłowego działania potrzebuje działania javascript</noscript></div></div></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXI - PRZEGLODAJ</title>
+    <meta name="description" content="Pixi.Twoje miejsce do rozmów,rozrywki i czatu z kapitanem">
+    <meta name="author" content="Dominik Kapitan Łempicki">
+    <link rel="shortcut icon" href="foty/ikonapixi.ico">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <script src="js/menu.js" type="text/javascript" charset="UTF-8" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" charset="UTF-8">
+</head>
+
+<body>
+
+    <style>
+        #ladowanie {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 255, 0.116);
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            z-index: 248;
+        }
+
+        #ladowanie img {
+            animation: 4s rozmiar infinite;
+        }
+
+        @keyframes rozmiar {
+
+            0%,
+            100% {
+                width: 48px;
+            }
+
+            50% {
+                width: 228px;
+            }
+
+        }
+    </style>
+    <div id="ladowanie">
+        <div>
+            <img src="foty/logo.png" alt="ładowanie">
+            <h1>Ładowanie zasobów</h1>
+            <noscript>Ta witryna do prawidłowego działania potrzebuje działania javascript</noscript>
+        </div>
+    </div>
+
+   <!----
+    <aside>
+        <div id="nowa_akcja">
+            <div class="nowy_post">
+                <div style="border-bottom: 1px silver solid;padding: 4px;"> &#128196; Utwórz post <button class="zamknij">X</button></div>
+                <div class="moje_informacje_post">
+                    <div class="ladowanie_prof" style="animation: powiad_loaduj 2s linear infinite;"></div>
+                    <div class="ladowanie_imie_post"></div>
+                    <select name="post_publicznosc" id="post_publicznosc" title="Czy publiczny?">
+                        <option value="0">&#128219;Prywatny</option>
+                        <option value="1">&#127759;Publiczny</option>
+                    </select>
+                </div>
+                <div><textarea name="" id="" cols="10" rows="4" title="Napisz treść posta" placeholder="Co słychać?"></textarea></div>
+                <input type="file" name="zdjecia_posta" id="zdjecia_posta" alt="zdjęcie posta"
+                    hidden />
+                <div class="dodaj_do_posta">
+                    Dodaj do posta <div class="dodaj_do_posta_opcje">
+                        <label for="zdjecia_posta" ><div id="dodaj_zdjecie" title="Dodaj zdjęcie">&#128247;</div></label>
+                        <div id="dodaj_lokalizacje" title="Dodaj lokalizacje">&#128506;</div>
+                        <div id="post_znajomego" title="Oznacz znajomego">&#128111;</div>
+                    </div>
+                </div>
+                <div><button id="opublikuj">Opublikuj</button></div>
+            </div>
+        </div>
+    </aside>
+-->
+        <!---- <nav>
+        <div class="menu">
+            <header id="tytul_portalu">
+                <h1>PIXI</h1>
+            </header>
+
+            <div class="wyszukaj i">
+                <form type="POST" class="i">
+                    <input type="text" class="b" name="wyszukiwarka" id="wyszukiwarka" placeholder="Szukaj w pixi">
+                </form>
+                <button id="lupka">🔎</button>
+            </div>
+            <div class="telefon">
+                <button id="wiadomosci_tel" class="wiadomosci_ikonka" alt="wiadomosci">&#128232</button>
+                <button id="pow_tel" style="left:40%" class="wiadomosci_ikonka">&#128240</button>
+            </div>
+
+            <div class="komputer">
+                <div class="menu_opcje">
+                 <!--    <button class="aktywny_przycisk">Strona główna</button>
+                    <button id="powiad_przycisk">Powiadomienia <div class="licznik_menu" id="licznik_powiadomien">828
+                        </div></button>
+                    <button id="pilne_przycisk">Pilne kontakty<div class="licznik_menu">28</div></button>
+                    <button id="wiad_przycisk">Wiadomości<div class="licznik_menu">4</div></button>
+                    <button>Dodaj posta</button>
+                    <button>Mój profil</button>
+                    <button>Ustawienia</button>
+                    <button>Więcej</button>
+                    <button>Wyloguj się</button>
+                </div>
+            </div>
+        </div>
+    </nav>-->
+
+        <!--   <aside>
+        <div class="powiadomienia" id="powiadomienia">
+            <h2>Powiadomienia: <button>X</button> </h2>
+            <div class="powiad" id="powiad">
+
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+
+            </div>
+            <a class="wszystkie" href="powiadomienia">Wyświetl wszystkie powiadomienia</a>
+        </div>
+    </aside>
+    <aside>
+      <div class="powiadomienia" id="pilne_wiad">
+            <h2>Pilne wiadomości: <button>X</button> </h2>
+            <div class="powiad" id="pilne_wiadom">
+
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+
+            </div>
+            <a class="wszystkie" href="wiadomosci_pilne">Wyświetl wszystkie pilne wiadomości</a>
+        </div>
+    </aside>
+
+    <aside>
+        <div class="powiadomienia" id="wiadomosci">
+            <h2>Wiadomości: <button>X</button> </h2>
+            <div class="powiad" id="pilne_wiadom">
+
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+
+            </div>
+            <a class="wszystkie" href="wiadomosci">Wyświetl wszystkie moje wiadomości</a>
+        </div>
+    </aside>
+    <aside>
+        <div id="wyszukaj" class="powiadomienia">
+            <h2>Wynik wyszukiwania: <button>X</button> </h2>
+            <div class="powiad" id="wynik_wyszuk">
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+                <div class="powiadomienie powiad_load">
+                    <div class="ladowanie_prof"></div>
+                </div>
+            </div>
+            <a class="wszystkie" href="powiadomienia">Pokaż więcej wyników</a>
+        </div>
+    </aside>
+    <main>
+
+    </main>-->
+
+
+</body>
+
+</html>

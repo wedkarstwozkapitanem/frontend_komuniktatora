@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // Pobierz bieżący stan URL
+var currentState = history.state;
+
+// Zmień adres URL
+var newURL = '/nowy/adres'; // Tutaj wpisz nowy adres URL
+history.pushState(currentState, '', newURL);
+
+// Zaktualizuj zawartość strony bez przeładowania
+// Możesz użyć tej sekcji do wykonywania innych operacji związanych z aktualizacją strony
+
+</script>

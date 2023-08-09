@@ -1,1 +1,464 @@
-function main(){return renderuj_nawigacje(),body.removeChild(ladowanie),!0}function przelodwanie(){document.location.reload()}function renderuj_nawigacje(){let e=document.createElement("nav"),t=document.createElement("div");t.className="menu";let n=document.createElement("header");n.id="tytul_portalu",n.innerHTML="<h1>Pixi</h1>",n.addEventListener("click",przelodwanie),t.appendChild(n);let i=document.createElement("div");i.classList="wyszukaj i";let d=document.createElement("form");d.setAttribute("method","POST"),d.className="i";let a=document.createElement("input");a.setAttribute("type","text"),a.className="b",a.setAttribute("name","wyszukiwarka"),a.id="wyszukiwarka",a.setAttribute("placeholder","Szukaj w pixi"),a.addEventListener("click",()=>{window.innerWidth>=943&&!szukanie_live&&l.click()}),d.appendChild(a),i.appendChild(d),t.appendChild(i);let l=document.createElement("button");l.id="lupka",l.innerHTML="&#128270;",l.addEventListener("click",zmienlupe),i.appendChild(l);let o=document.createElement("div");o.className="telefon";let c=document.createElement("button");c.id="wiadomosci_tel",c.className="wiadomosci_ikonka",c.setAttribute("alt","wiadomosci"),c.innerHTML="&#128232;";let m=document.createElement("div");m.className="licznik_menu",m.innerText="488",c.appendChild(m),o.appendChild(c);let s=document.createElement("div");s.id="pow_tel",s.style.left="40%",s.className="wiadomosci_ikonka",s.innerHTML="&#128240;";let p=document.createElement("div");p.className="licznik_menu",p.innerText="488",s.appendChild(p),o.appendChild(s),t.appendChild(o);let u=document.createElement("div");u.className="komputer";let r=document.createElement("div");r.className="menu_opcje",u.appendChild(r),t.appendChild(u),e.appendChild(t),body.appendChild(e),nowy_dym_wysz()}function renderuj_menu(){let e=[["aktywny_przycisk","Strona główna"],["powiad_przycisk","Powiadomienia","powiadomienia"],["pilne_przycisk","Pilne wiadomości","pilne_wiad"],["wiad_przycisk","Wiadomości","wiadomosci"],["dodawanie_posta","Dodaj posta"],[" ","Mój profil"],[" ","Ustawienia"],[" ","Więcej"],[" ","Wyloguj"]],t=document.querySelector(".menu_opcje");e.forEach(e=>{przycisk=document.createElement("button"),przycisk.id=e[0],przycisk.innerText=e[1],e.length>=3&&e[2]&&(zmieniajdymki(przycisk,document.getElementById(e[2]),"#"+e[2]+" h2 button"),licznik=document.createElement("div"),licznik.className="licznik_menu",licznik.innerText="488",przycisk.appendChild(licznik)),t.appendChild(przycisk)}),document.getElementById("dodawanie_posta").addEventListener("click",renderuj_wstawianie_nowy_post)}function nowy_dym_wysz(){let e=[["powiadomienia","powiad","Moje powiadomienia","pow_tel"],["pilne_wiad","pilne_wiadom","Pilne wiadomości"],["wiadomosci","pilne_wiadom","Wiadomości","wiadomosci_tel"],["wyszukaj","wynik_wyszuk","Wyniki wyszukiwania","lupka"]];e.forEach(e=>{let t=body.appendChild(document.createElement("aside")),n=document.createElement("div");n.id=e[0],n.classList="powiadomienia";let i=document.createElement("h2");i.innerText=e[2]+" :";let d=document.createElement("button");d.innerText="X",i.appendChild(d),n.appendChild(i);let a=document.createElement("div");a.classList="powiad",a.id=e[1],n.appendChild(a),n.addEventListener("blur",()=>szukanie.live?"":lup.click());for(let e=0;e<4;e++){let e=document.createElement("div");e.classList="powiadomienie powiad_load",e.innerHTML='<div class="ladowanie_prof"></div>',a.appendChild(e)}t.appendChild(n),e.length>=4&&e[3]&&""!==e[3]&&("lupka"!==e[3]?zmieniajdymki(document.getElementById(e[3]),n):zmieniajdymki(document.getElementById(e[3]),n,"#wyszukaj h2 button"))}),renderuj_menu()}function zmienlupe(){document.getElementById("wyszukiwarka").classList.toggle("widocznosc"),document.getElementById("lupka").classList.toggle("aktywnalupa"),zmienikony(),szukanie_live=!szukanie_live}function zmienikony(){document.getElementById("wiadomosci_tel").classList.toggle("wid"),document.getElementById("pow_tel").classList.toggle("wid")}function aktywnedymki(){aktywnyprzycik.classList.toggle("aktywny_przycisk"),aktywny_dymek.classList.toggle("widocznosc")}function zmieniajdymki(e,t,n){e.addEventListener("click",()=>{null!=aktywny_dymek&&(aktywny_dymek!=t&&aktywnedymki()),e.classList.toggle("aktywny_przycisk"),t.classList.toggle("widocznosc"),"wiadomosci_tel"===e.id&&document.getElementById("wiad_przycisk").classList.toggle("aktywny_przycisk"),"pow_tel"===e.id&&document.getElementById("powiad_przycisk").classList.toggle("aktywny_przycisk"),aktywny_dymek!=t?(aktywny_dymek=t,aktywnyprzycik=e):(aktywny_dymek=null,aktywnyprzycik=null)}),n&&document.querySelector(n).addEventListener("click",()=>{aktywnedymk=!1,e.classList.toggle("aktywny_przycisk"),t.classList.toggle("widocznosc"),aktywny_dymek=null,aktywnyprzycik=null,t==document.getElementById("wyszukaj")&&zmienlupe()})}function renderuj_wstawianie_nowy_post(){if(czy_wstawiano_post)return document.getElementById("nowa_akcja").style.display="flex",0;let e=body.appendChild(document.createElement("aside")),t=document.createElement("div");t.id="nowa_akcja";let n=document.createElement("div");n.className="nowy_post";let i=document.createElement("div");i.style.borderBottom="1px silver solid",i.style.padding="4px",i.innerHTML=" &#128196; Utwórz post";let d=document.createElement("button");d.className="zamknij",d.innerText="X",d.addEventListener("click",()=>{document.getElementById("nowa_akcja").style.display="none"}),i.appendChild(d),n.appendChild(i);let a=document.createElement("div");a.className="moje_informacje_post";let l=document.createElement("div");l.className="ladowanie_prof",l.style.animation="powiad_loaduj 2s linear infinite",a.appendChild(l);let o=document.createElement("div");o.className="ladowanie_imie_post",a.appendChild(o);let c=document.createElement("select");c.id="post_publicznosc",c.setAttribute("name","post_publicznosc"),c.title="Czy publiczny?";let m=document.createElement("option");m.value="0",m.innerHTML="&#128219;Prywatny";let s=document.createElement("option");s.value="1",s.innerHTML="&#127759;Publiczny",c.appendChild(s),c.appendChild(m),a.appendChild(c),n.appendChild(a);let p=document.createElement("div"),u=document.createElement("textarea");u.setAttribute("name","post_tresc"),u.setAttribute("cols","10"),u.setAttribute("rows","4"),u.title="Napisz treść posta",u.setAttribute("placeholder","Co słychać?"),p.appendChild(u),n.appendChild(p);let r=document.createElement("input");r.setAttribute("type","file"),r.setAttribute("name","zdjecia_posta"),r.id="zdjecia_posta",r.setAttribute("alt","zdjęcia posta"),r.hidden=!0,n.appendChild(r);let y=document.createElement("div");y.className="dodaj_do_posta",y.innerHTML="<span class='dodaj_do_post'>Dodaj do posta</span>";let w=document.createElement("div");w.className="dodaj_do_posta_opcje";let k=document.createElement("label");k.setAttribute("for","zdjecia_posta");let _=document.createElement("div");_.id="dodaj_zdjecie",_.title="Dodaj zdjęcie",_.innerHTML="&#128247;",k.appendChild(_),w.appendChild(k);let z=document.createElement("div");z.id="dodaj_lokalizacje",z.title="Dodaj lokalizacje",z.innerHTML="&#128506;",w.appendChild(z);let E=document.createElement("div");E.id="post_znajomego",E.title="Oznacz znajomego",E.innerHTML="&#128111;",w.appendChild(E),y.appendChild(w),n.appendChild(y);let h=document.createElement("div"),g=document.createElement("button");g.id="opublikuj",g.innerHTML="Opublikuj",h.appendChild(g),n.appendChild(h),t.appendChild(n),e.appendChild(t),czy_wstawiano_post=!0}const body=document.querySelector("body"),ladowanie=document.getElementById("ladowanie"),tytul_portalu=document.getElementById("tytul_portalu"),lupka=document.getElementById("lupka"),wyszukiwarka=document.getElementById("wyszukiwarka"),powiad_przycisk=document.getElementById("powiad_przycisk"),powiadomienia=document.querySelector(".powiadomienia"),powiad=document.getElementById("powiad"),pilne_przycisk=document.getElementById("pilne_przycisk"),pilne_wiad=document.getElementById("pilne_wiad"),wiad_przycisk=document.getElementById("wiad_przycisk"),wiadomosci=document.getElementById("wiadomosci");let aktywny_dymek=null,aktywnyprzycik=null;const wiadomosci_tel=document.getElementById("wiadomosci_tel"),pow_tel=document.getElementById("pow_tel"),wyszukaj=document.getElementById("wyszukaj");let szukanie=!1,szukanie_live=!1,czy_wstawiano_post=!1;try{window.onload=(()=>{if(!main())throw new Error("Błąd")})}catch(e){console.log(e)}
+"strict mode";
+const body = document.querySelector("body");
+const ladowanie = document.getElementById("ladowanie");
+const tytul_portalu = document.getElementById("tytul_portalu");
+const lupka = document.getElementById("lupka");
+const wyszukiwarka = document.getElementById("wyszukiwarka");
+const powiad_przycisk = document.getElementById("powiad_przycisk");
+const powiadomienia = document.querySelector(".powiadomienia");
+const powiad = document.getElementById("powiad");
+const pilne_przycisk = document.getElementById("pilne_przycisk");
+const pilne_wiad = document.getElementById("pilne_wiad");
+const wiad_przycisk = document.getElementById("wiad_przycisk");
+const wiadomosci = document.getElementById("wiadomosci");
+let aktywny_dymek = null,
+  aktywnyprzycik = null;
+
+/** */
+const wiadomosci_tel = document.getElementById("wiadomosci_tel");
+const pow_tel = document.getElementById("pow_tel");
+const wyszukaj = document.getElementById("wyszukaj");
+let szukanie = false,
+  szukanie_live = false; //
+let czy_wstawiano_post = false;
+let licznik_zdjec = 0;
+/*****/
+
+function main() {
+  renderuj_nawigacje();
+  body.removeChild(ladowanie);
+  return true;
+}
+
+function przelodwanie() {
+  document.location.reload();
+}
+
+function renderuj_nawigacje() {
+  let nav = document.createElement("nav");
+  let menu = document.createElement("div");
+  menu.className = "menu";
+  let header = document.createElement("header");
+  header.id = "tytul_portalu";
+  header.innerHTML = "<h1>Pixi</h1>";
+  header.addEventListener("click", przelodwanie); //przeładowanie tytułm
+  menu.appendChild(header);
+
+  let wyszuk = document.createElement("div");
+  wyszuk.classList = "wyszukaj i";
+
+  let form = document.createElement("form");
+  form.setAttribute("method", "POST");
+  form.className = "i";
+  let input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.className = "b";
+  input.setAttribute("name", "wyszukiwarka");
+  input.id = "wyszukiwarka";
+  input.setAttribute("placeholder", "Szukaj w pixi");
+
+  input.addEventListener("click", () => {
+    if (window.innerWidth >= 943) !szukanie_live ? lup.click() : "";
+  });
+
+  form.appendChild(input);
+  wyszuk.appendChild(form);
+  menu.appendChild(wyszuk);
+  let lup = document.createElement("button");
+  lup.id = "lupka";
+  lup.innerHTML = "&#128270;";
+  lup.addEventListener("click", zmienlupe); //
+  wyszuk.appendChild(lup);
+
+  let tel = document.createElement("div");
+  tel.className = "telefon";
+  let but1 = document.createElement("button");
+  but1.id = "wiadomosci_tel";
+  but1.className = "wiadomosci_ikonka";
+  but1.setAttribute("alt", "wiadomosci");
+  but1.innerHTML = "&#128232;";
+
+  let licznik_pow = document.createElement("div");
+  licznik_pow.className = "licznik_menu";
+  licznik_pow.innerText = "488"; //
+  but1.appendChild(licznik_pow);
+
+  tel.appendChild(but1);
+  let but2 = document.createElement("div");
+  but2.id = "pow_tel";
+  but2.style.left = "40%";
+  but2.className = "wiadomosci_ikonka";
+  but2.innerHTML = "&#128240;";
+
+  let licznik_wiad = document.createElement("div");
+  licznik_wiad.className = "licznik_menu";
+  licznik_wiad.innerText = "488"; //
+  but2.appendChild(licznik_wiad);
+
+  tel.appendChild(but2);
+  menu.appendChild(tel);
+
+  let div_komp = document.createElement("div");
+  div_komp.className = "komputer";
+
+  let men_opcje = document.createElement("div");
+  men_opcje.className = "menu_opcje";
+
+  div_komp.appendChild(men_opcje);
+  menu.appendChild(div_komp);
+
+  nav.appendChild(menu);
+
+  body.appendChild(nav);
+  /** */
+
+  nowy_dym_wysz();
+
+  /*  */
+}
+
+function renderuj_menu() {
+  let menu_opcje = [
+    ["aktywny_przycisk", "Strona główna"],
+    ["powiad_przycisk", "Powiadomienia", "powiadomienia"],
+    ["pilne_przycisk", "Pilne wiadomości", "pilne_wiad"],
+    ["wiad_przycisk", "Wiadomości", "wiadomosci"],
+    ["dodawanie_posta", "Dodaj posta"],
+    [" ", "Mój profil"],
+    [" ", "Ustawienia"],
+    [" ", "Więcej"],
+    [" ", "Wyloguj"],
+  ];
+  let opcja_menu = document.querySelector(".menu_opcje");
+  menu_opcje.forEach((opcja) => {
+    przycisk = document.createElement("button");
+    przycisk.id = opcja[0];
+    przycisk.innerText = opcja[1];
+    if (opcja.length >= 3) {
+      if (opcja[2]) {
+        zmieniajdymki(
+          przycisk,
+          document.getElementById(opcja[2]),
+          "#" + opcja[2] + " h2 button"
+        );
+        licznik = document.createElement("div");
+        licznik.className = "licznik_menu";
+        licznik.innerText = "488"; ////
+        przycisk.appendChild(licznik);
+      }
+    }
+    opcja_menu.appendChild(przycisk);
+  });
+
+  document
+    .getElementById("dodawanie_posta")
+    .addEventListener("click", renderuj_wstawianie_nowy_post);
+}
+
+function nowy_dym_wysz() {
+  let dymki = [
+    ["powiadomienia", "powiad", "Moje powiadomienia", "pow_tel"],
+    ["pilne_wiad", "pilne_wiadom", "Pilne wiadomości"],
+    ["wiadomosci", "pilne_wiadom", "Wiadomości", "wiadomosci_tel"],
+    ["wyszukaj", "wynik_wyszuk", "Wyniki wyszukiwania", "lupka"],
+  ];
+
+  dymki.forEach((oknienko_id) => {
+    let aside = body.appendChild(document.createElement("aside"));
+    let okno = document.createElement("div");
+    okno.id = oknienko_id[0];
+    okno.classList = "powiadomienia";
+    let h2 = document.createElement("h2");
+    h2.innerText = oknienko_id[2] + " :";
+    let button = document.createElement("button");
+    button.innerText = "X";
+    h2.appendChild(button);
+    okno.appendChild(h2);
+    let pow = document.createElement("div");
+    pow.classList = "powiad";
+    pow.id = oknienko_id[1];
+    okno.appendChild(pow);
+
+    //  okno.addEventListener('focus', () => {!szukanie.live ? lup.click() : "";});
+    okno.addEventListener("blur", () => (!szukanie.live ? lup.click() : "")); //
+
+    for (let i = 0; i < 4; i++) {
+      let znajomy = document.createElement("div");
+      znajomy.classList = "powiadomienie powiad_load";
+      znajomy.innerHTML = '<div class="ladowanie_prof"></div>';
+      pow.appendChild(znajomy);
+    }
+    aside.appendChild(okno);
+
+    if (oknienko_id.length >= 4) {
+      if (oknienko_id[3] && oknienko_id[3] !== "") {
+        if (oknienko_id[3] !== "lupka")
+          zmieniajdymki(document.getElementById(oknienko_id[3]), okno);
+        else
+          zmieniajdymki(
+            document.getElementById(oknienko_id[3]),
+            okno,
+            "#wyszukaj h2 button"
+          );
+      }
+    }
+  });
+
+  renderuj_menu();
+}
+
+function zmienlupe() {
+  document.getElementById("wyszukiwarka").classList.toggle("widocznosc");
+  document.getElementById("lupka").classList.toggle("aktywnalupa");
+  zmienikony();
+  szukanie_live ? (szukanie_live = false) : (szukanie_live = true);
+}
+
+/****/
+
+function zmienikony() {
+  document.getElementById("wiadomosci_tel").classList.toggle("wid");
+  document.getElementById("pow_tel").classList.toggle("wid");
+}
+/*******/
+
+function aktywnedymki() {
+  aktywnyprzycik.classList.toggle("aktywny_przycisk");
+  aktywny_dymek.classList.toggle("widocznosc");
+}
+
+function zmieniajdymki(przycisk, dymek, zamknij) {
+  przycisk.addEventListener("click", () => {
+    aktywny_dymek != null ? (aktywny_dymek != dymek ? aktywnedymki() : "") : "";
+    przycisk.classList.toggle("aktywny_przycisk");
+    dymek.classList.toggle("widocznosc");
+    if (przycisk.id === "wiadomosci_tel") {
+      document
+        .getElementById("wiad_przycisk")
+        .classList.toggle("aktywny_przycisk");
+    }
+    if (przycisk.id === "pow_tel") {
+      document
+        .getElementById("powiad_przycisk")
+        .classList.toggle("aktywny_przycisk"); //
+    }
+    if (aktywny_dymek != dymek) {
+      aktywny_dymek = dymek;
+      aktywnyprzycik = przycisk;
+    } else {
+      aktywny_dymek = null;
+      aktywnyprzycik = null;
+    }
+  });
+  if (zamknij) {
+    document.querySelector(zamknij).addEventListener("click", () => {
+      aktywnedymk = false;
+      przycisk.classList.toggle("aktywny_przycisk");
+      dymek.classList.toggle("widocznosc");
+      aktywny_dymek = null;
+      aktywnyprzycik = null;
+      if (dymek == document.getElementById("wyszukaj")) {
+        zmienlupe();
+      }
+    });
+  }
+
+  /*   if (dymek !== document.getElementById("wyszukaj")) {
+             przycisk.addEventListener("blur", () => { //jakby okienka się zamykali wyłączyć
+                 aktywny_dymek != null ? aktywny_dymek != dymek ? aktywnedymki() : "" : "";
+                 przycisk.classList.toggle("aktywny_przycisk");
+                 dymek.classList.toggle("widocznosc");
+                 if (aktywny_dymek != dymek) {
+                     aktywny_dymek = dymek;
+                     aktywnyprzycik = przycisk;
+                 } else {
+                     aktywny_dymek = null;
+                     aktywnyprzycik = null;
+                 }
+             });
+         }*/
+}
+
+function renderuj_wstawianie_nowy_post() {
+  document
+    .getElementById("dodawanie_posta")
+    .classList.toggle("aktywny_przycisk");
+  if (czy_wstawiano_post) {
+    document.getElementById("nowa_akcja").style.display = "flex";
+    return 0;
+  }
+
+  let aside = body.appendChild(document.createElement("aside"));
+
+  let nowa_akcja = document.createElement("div");
+  nowa_akcja.id = "nowa_akcja";
+
+  let nowy_post = document.createElement("div");
+  nowy_post.className = "nowy_post";
+
+  let tytul_post = document.createElement("div");
+  tytul_post.style.borderBottom = "1px silver solid";
+  tytul_post.style.padding = "4px";
+  tytul_post.innerHTML = " &#128196; Utwórz post";
+  let zamk = document.createElement("button");
+  zamk.className = "zamknij";
+  zamk.innerText = "X";
+  zamk.addEventListener("click", () => {
+    document.getElementById("nowa_akcja").style.display = "none";
+    document
+      .getElementById("dodawanie_posta")
+      .classList.toggle("aktywny_przycisk");
+  });
+  tytul_post.appendChild(zamk);
+  nowy_post.appendChild(tytul_post);
+
+  let moje_informacje_post = document.createElement("div");
+  moje_informacje_post.className = "moje_informacje_post";
+
+  let ladowanie_prof = document.createElement("div");
+  ladowanie_prof.className = "ladowanie_prof";
+  ladowanie_prof.style.animation = "powiad_loaduj 2s linear infinite";
+  moje_informacje_post.appendChild(ladowanie_prof);
+  let ladowanie_imie_post = document.createElement("div");
+  ladowanie_imie_post.className = "ladowanie_imie_post";
+  moje_informacje_post.appendChild(ladowanie_imie_post);
+
+  let select = document.createElement("select");
+  select.id = "post_publicznosc";
+  select.setAttribute("name", "post_publicznosc");
+  select.title = "Czy publiczny?";
+
+  let prywatny = document.createElement("option");
+  prywatny.value = "0";
+  prywatny.innerHTML = "&#128219;Prywatny";
+  let publiczny = document.createElement("option");
+  publiczny.value = "1";
+  publiczny.innerHTML = "&#127759;Publiczny";
+
+  select.appendChild(publiczny);
+  select.appendChild(prywatny);
+
+  moje_informacje_post.appendChild(select);
+  nowy_post.appendChild(moje_informacje_post); //
+
+  let d = document.createElement("div");
+  let textarea = document.createElement("textarea");
+  textarea.setAttribute("name", "post_tresc");
+  textarea.setAttribute("cols", "10");
+  textarea.setAttribute("rows", "4");
+  textarea.title = "Napisz treść posta";
+  textarea.setAttribute("placeholder", "Co słychać?");
+
+  let pliki = document.createElement("input");
+  pliki.setAttribute("type", "file");
+  pliki.setAttribute("name", "zdjecia_posta");
+  pliki.id = "zdjecia_posta";
+  pliki.setAttribute("alt", "zdjęcia posta");
+  pliki.hidden = true;
+  pliki.multiple = true;
+
+  let podglad_zdjec = document.createElement("div");
+  podglad_zdjec.id = "podglad_zdjec";
+
+  pliki.addEventListener("change", () => {
+    for (let i = 0; i < pliki.files.length; i++) {
+      const czytnik = new FileReader();
+     // console.log(pliki.files[i].type);
+
+      czytnik.onload = () => {
+        const url = czytnik.result;
+        const nowe_foto = document.createElement("img");
+        nowe_foto.alt = "zdjęcie posta";
+        nowe_foto.src = url;
+        nowe_foto.dataset.nazwa_pliku = pliki.files[i].name + "__nr__" + licznik_zdjec;
+
+        podglad_zdjec.appendChild(nowe_foto);
+      };
+     
+
+
+    if (czy_dozwolony_typ(pliki.files[i].type)) {
+        czytnik.readAsDataURL(pliki.files[i]);
+        licznik_zdjec++;
+    } else {
+        alert("Nie dozwolony typ pliku " + pliki.files[i].type);
+        const czytnik_tresc = new FileReader();
+        czytnik_tresc.readAsDataURL(pliki.files[i]);
+        czytnik_tresc.addEventListener('load', () => {
+          const tresc_pliku = `[nazwa_pliku] ${pliki.files[i].name} [/nazwa_pliku]\n[tresc_pliku] ${atob(czytnik_tresc.result.split(",")[1])} [/tresc_pliku]`;
+          textarea.value += tresc_pliku;
+        })
+
+    }
+
+    }
+  });
+
+
+  function czy_dozwolony_typ(plik_typ) {
+    const dozwolony_typ = ["image/png","image/jpeg","image/gif"];
+
+    for (let p=0; p<dozwolony_typ.length; p++) {
+        if (dozwolony_typ[p] == plik_typ) {
+            return true;
+            break;
+        }
+    };
+    return false;
+  }
+
+  d.appendChild(textarea);
+  d.appendChild(pliki);
+  nowy_post.appendChild(d);
+  nowy_post.appendChild(podglad_zdjec);
+
+  let dodaj_do_posta = document.createElement("div");
+  dodaj_do_posta.className = "dodaj_do_posta";
+
+  dodaj_do_posta.innerHTML =
+    "<span class='dodaj_do_post'>Dodaj do posta</span>";
+
+  let dodaj_do_posta_opcje = document.createElement("div");
+  dodaj_do_posta_opcje.className = "dodaj_do_posta_opcje";
+  let label = document.createElement("label");
+  label.setAttribute("for", "zdjecia_posta");
+  let dodaj_zdjecie = document.createElement("div");
+  dodaj_zdjecie.id = "dodaj_zdjecie";
+  dodaj_zdjecie.title = "Dodaj zdjęcie";
+  dodaj_zdjecie.innerHTML = "&#128247;";
+  label.appendChild(dodaj_zdjecie);
+  dodaj_do_posta_opcje.appendChild(label);
+
+  let dodaj_lokalizacje = document.createElement("div");
+  dodaj_lokalizacje.id = "dodaj_lokalizacje";
+  dodaj_lokalizacje.title = "Dodaj lokalizacje";
+  dodaj_lokalizacje.innerHTML = "&#128506;";
+  dodaj_do_posta_opcje.appendChild(dodaj_lokalizacje);
+
+  let post_znajomego = document.createElement("div");
+  post_znajomego.id = "post_znajomego";
+  post_znajomego.title = "Oznacz znajomego";
+  post_znajomego.innerHTML = "&#128111;";
+  dodaj_do_posta_opcje.appendChild(post_znajomego);
+
+  dodaj_do_posta.appendChild(dodaj_do_posta_opcje);
+  nowy_post.appendChild(dodaj_do_posta);
+
+  let o = document.createElement("div");
+  let opublikuj = document.createElement("button");
+  opublikuj.id = "opublikuj";
+  opublikuj.innerHTML = "Opublikuj";
+  o.appendChild(opublikuj);
+  nowy_post.appendChild(o);
+  nowa_akcja.appendChild(nowy_post);
+  aside.appendChild(nowa_akcja);
+  czy_wstawiano_post = true;
+}
+
+try {
+  window.onload = () => {
+    if (!main()) throw new Error("Błąd");
+  };
+} catch (blod) {
+  console.log(blod);
+}
