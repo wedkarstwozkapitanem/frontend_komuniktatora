@@ -1,1 +1,2 @@
-# boczne menu dla np. komunikatora
+# Lewe boczne menu
+# Proponowane np. do zrobienia prostego komunikatora
