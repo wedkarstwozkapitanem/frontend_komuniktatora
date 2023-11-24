@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Righteous';
+    src: url('czcionki/Righteous.ttf'); /* IE9 Compat Modes */
+    src: url('czcionki/Righteous.ttf') format('embedded-opentype'), /* IE6-IE8 */
+    url('czcionki/Righteous.ttf') format('woff'), /* Modern Browsers */
+    url('czcionki/Righteous.ttf') format('truetype'), /* Safari, Android, iOS */
+   }
+
+   @font-face {
+    font-family: 'GreatVibes';
+    src: url('czcionki/Righteous.ttf'); /* IE9 Compat Modes */
+    src: url('czcionki/Righteous.ttf') format('embedded-opentype'), /* IE6-IE8 */
+    url('czcionki/Righteous.ttf') format('woff'), /* Modern Browsers */
+    url('czcionki/Righteous.ttf') format('truetype'), /* Safari, Android, iOS */
+   }
+
 * {
     position: relative;
     margin: 0;
@@ -95,7 +111,7 @@ body::-webkit-scrollbar {
 
 .menu h1 {
     margin: 10px;
-    font-family: fantasy;
+    font-family: GreatVibes fantasy;
     font-size: 38px;
     float:left;
     cursor: pointer;
@@ -117,7 +133,7 @@ body::-webkit-scrollbar {
         height: 96vh !important;
     }
     .wyszukaj {
-        top: 1px;
+        top: 2px;
     }
     #wyszukaj {
         top:64px;
@@ -180,9 +196,10 @@ body::-webkit-scrollbar {
     font-size: 29px;
     border-radius: 28px;
     cursor: pointer;
-    margin: 10px;
+    /* margin: 10px; */
     position: absolute;
     left:8px;
+    top: -6px;
     background-color: rgb(60, 59, 59);
 }
 
@@ -196,14 +213,14 @@ body::-webkit-scrollbar {
     }
     .menu input {
         display: none;
-        width: 71%;
+        width: 80%;
     }
     @keyframes rozwijanie {
         0% {
             width: 0;
         }
         100% {
-            width: 70%;
+            width: 80%;
         }
     }
 
@@ -227,7 +244,7 @@ body::-webkit-scrollbar {
 
 .powiadomienia {
     position: fixed;
-    width: 95%;
+    width: 94%;
     height: 84%;
     left:0;
     background-color: rgb(14, 14, 13);
@@ -389,7 +406,7 @@ body::-webkit-scrollbar {
     padding: 8px;
     cursor: pointer;
     border:0;
-    font-family: cursive;
+    font-family: Righteous cursive;
     text-align:left;
 }
 
@@ -422,7 +439,7 @@ body::-webkit-scrollbar {
 
 .menu h1 {
     text-align: center;
-    font-family: cursive;
+    font-family: Righteous cursive;
     margin-top: 0px;
     font-size: 48px;
     color: #09dbac;
@@ -927,8 +944,7 @@ main {
     width: 55px;
     height: 54px;
     right: 12px;
-    margin: 5px;
-      
+    margin: 0;
 }
 
 #hamburger div {
