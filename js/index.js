@@ -190,12 +190,21 @@ function nowy_dym_wysz() {
         let okno = document.createElement("div");
         okno.id = oknienko_id[0];
         okno.classList = "powiadomienia";
+        
         let h2 = document.createElement("h2");
+        if(oknienko_id[0] != "wyszukaj") {
         h2.innerText = oknienko_id[2] + " :";
+    } else {
+        h2.className = "border_none";
+        okno.innerHTML = `
+        <form method="POST" class="i"><input type="text" class="wyszukuwanie" name="wyszukiwarka" id="wyszukiwark" placeholder="Szukaj w pixi"></form>
+        `;
+    }
         let button = document.createElement("button");
         button.innerText = "X";
         h2.appendChild(button);
         okno.appendChild(h2);
+
         let pow = document.createElement("div");
         pow.classList = "powiad";
         pow.id = oknienko_id[1];
@@ -224,6 +233,7 @@ function nowy_dym_wysz() {
                         okno,
                         "#wyszukaj h2 button"
                     );
+                    
             }
         }
     });
@@ -232,8 +242,8 @@ function nowy_dym_wysz() {
 }
 
 function zmienlupe() {
-    document.getElementById("wyszukiwarka").classList.toggle("widocznosc");
-    document.getElementById("lupka").classList.toggle("aktywnalupa");
+   // document.getElementById("wyszukiwarka").classList.toggle("widocznosc");
+   // document.getElementById("lupka").classList.toggle("aktywnalupa");
     zmienikony();
     // szukanie_live ? (szukanie_live = false) : (szukanie_live = true);
 }
@@ -288,6 +298,8 @@ function zmieniajdymki(przycisk, dymek, zamknij) {
             }
         });
     }
+
+  
 
     /*   if (dymek !== document.getElementById("wyszukaj")) {
                przycisk.addEventListener("blur", () => { //jakby okienka się zamykali wyłączyć

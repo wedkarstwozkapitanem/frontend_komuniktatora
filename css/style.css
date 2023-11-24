@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
         top: 2px;
     }
     #wyszukaj {
-        top:64px;
+        /* top:64px; */
     }
     .wszystkie {
         left:0 !important;
@@ -180,7 +180,7 @@ body::-webkit-scrollbar {
     padding: 8px;
     display: inline-block;
     left: 60px;
-    animation: rozwijanie 2s ease;
+    /*animation: rozwijanie 2s ease;*/
     z-index: 3;
     color:white;
     top: 10px;
@@ -199,7 +199,7 @@ body::-webkit-scrollbar {
     /* margin: 10px; */
     position: absolute;
     left:8px;
-    top: -6px;
+    top: 10px;
     background-color: rgb(60, 59, 59);
 }
 
@@ -211,16 +211,17 @@ body::-webkit-scrollbar {
         border-radius: 28px;
         margin: 1;
     }
+    
     .menu input {
         display: none;
-        width: 80%;
+    /*   width: 80%;*/
     }
     @keyframes rozwijanie {
         0% {
             width: 0;
         }
         100% {
-            width: 80%;
+         /*   width: 80%;*/
         }
     }
 
@@ -673,7 +674,7 @@ body::-webkit-scrollbar {
     position: absolute;
     left:20%;
     font-size: 50px;
-    top: -4px;
+    top: -5px;
     border-radius: 28px;
     background-color: rgba(0, 94, 255, 0);
     border:none;
@@ -716,7 +717,7 @@ body::-webkit-scrollbar {
     border-radius: 28px;
     text-align: center;
     padding: 8px;
-    font-size: 40px;
+    font-size: 39px;
     width: 95%;
 }
 .zamknij {
@@ -731,6 +732,7 @@ body::-webkit-scrollbar {
     margin: 4px;
     width: 40px;
     height: 40px;
+    z-index: 2;
 }
 .zamknij:hover {
     color:red;
@@ -745,6 +747,7 @@ body::-webkit-scrollbar {
     border:0;
     box-shadow: 0 0 1px black;
     resize: none;
+    height: 80px;
 }
 .nowy_post textarea:focus {
     border:0;
@@ -887,7 +890,10 @@ opacity: 0.4;
 
 
 @media screen and (max-width: 943px) {
-
+    .nowy_post {
+        font-size: 28px;
+        text-align: left;
+    }
     .menu_opcje button {
         font-size: 28px;
     }
@@ -942,7 +948,7 @@ main {
 #hamburger {
     float:right;
     width: 55px;
-    height: 54px;
+    height: 55px;
     right: 12px;
     margin: 0;
 }
@@ -958,3 +964,18 @@ main {
     display: block !important;
 }
 
+.border_none {
+    border: 0 !important;
+}
+
+.wyszukuwanie {
+    background-color: rgb(22, 21, 21);
+    height: 38px;
+    width: 80%;
+    margin: 12px auto 8px auto;
+    box-shadow: 0 0 1px silver;
+    border-radius: 8px;
+    font-size: 24px;
+    color: white;
+    float: left;
+}
