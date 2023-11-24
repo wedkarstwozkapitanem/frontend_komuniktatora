@@ -394,7 +394,7 @@ body::-webkit-scrollbar {
 .menu input {
     background-color: rgb(22, 21, 21);
     height: 38px;
-    width: 73%;
+    width: 80%;
     margin:12px auto 8px auto;
     box-shadow: 0 0 1px silver;
     border-radius: 8px;
@@ -431,12 +431,12 @@ body::-webkit-scrollbar {
  .menu_opcje button {
     width: 100%;
     height: auto;
-    min-height:64px;
+    min-height:40px;
     background: none;
     color:white;
     margin-top:10px;
     border-radius: 8px;
-    font-size: 28px;
+    font-size: 18px;
     padding: 8px;
     cursor: pointer;
     border:0;
@@ -608,10 +608,10 @@ body::-webkit-scrollbar {
     background-color: blue;
     border-radius: 48px;
     right: 0;
-    margin-top: -60px;
+    margin-top: -40px;
     z-index: 28;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     height: min-content;
     min-width: 32px;
     text-shadow: 0 0 2px black;
@@ -630,7 +630,7 @@ body::-webkit-scrollbar {
     position: absolute;
     left:20%;
     font-size: 50px;
-    top:-12px;
+    top: -4px;
     border-radius: 28px;
     background-color: rgba(0, 94, 255, 0);
     border:none;
@@ -846,6 +846,10 @@ opacity: 0.4;
 @media screen and (max-width: 943px) {
 .powiadomienia {
     margin: 2px 1% 0 1.5%;
+}
+main {
+    width: 100% !important;
+    left:0 !important;
 }
 
 }
