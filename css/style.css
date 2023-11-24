@@ -3,6 +3,7 @@
     margin: 0;
     text-decoration: none;
     list-style-type: none;
+    float: l;
 }
 
 a {
@@ -211,12 +212,12 @@ body::-webkit-scrollbar {
     left:0;
     background-color: rgb(14, 14, 13);
     border-radius: 28px;
-    box-shadow: 0 0 1px green;
+    box-shadow: 0 0 1px green,0 0 12px silver;
     top:0;
     animation: 2s powiad ease;
     padding:8px;
     display: none;
-
+    margin: 1%;
 }
 .powiadomienia h2 {
     font-size: 30px;
@@ -376,12 +377,13 @@ body::-webkit-scrollbar {
     width: 20%;
     overflow: auto;
     animation: 1s pokazmenu ease;
+    border-right: 3px groove rgba(192, 192, 192, 0.101);
 }
 
 .menu h1 {
     text-align: center;
     font-family: cursive;
-    margin-top: 18px;
+    margin-top: 0px;
     font-size: 48px;
     color: #09dbac;
     text-shadow: 2px 2px 3px #030bff;
@@ -409,8 +411,8 @@ body::-webkit-scrollbar {
     background-color: rgb(22, 21, 21);
     height: 40px;
     width: 40px;
-    border: 0;
-    box-shadow: 0 0 1px silver;
+    border: 0 px;
+    /* box-shadow: 0 0 1px silver; */
     border-radius: 8px;
     top:-3px;
     cursor: pointer;
@@ -481,20 +483,19 @@ body::-webkit-scrollbar {
     width: 30%;
     min-height: 300px;
     max-height: 100%;
-    left:22%;
+    left: 24%;
     background-color: rgb(14, 14, 13);
     border-radius: 28px;
     box-shadow: 0 0 1px green;
-    top:2%;
+    /* top:2%; */
     animation: 2s powiad ease;
     padding:8px;
     display: none;
 }
 .powiadomienia h2 {
     font-size: 30px;
-    color: #12ffb0;;
+    color: #12d3ff;
     border-bottom:1px dotted white;
-
 }
 .powiadomienia h2 button {
     position: absolute;
@@ -831,4 +832,35 @@ opacity: 0.4;
 }
 #podglad_zdjec img:hover {
     opacity:0.8;
+}
+
+
+/**/
+
+.powiadomienia,.nowy_post {
+    box-shadow: 0 0 1px green, 0 0 12px silver;
+    z-index: 28;
+}
+
+
+@media screen and (max-width: 943px) {
+.powiadomienia {
+    margin: 2px 1% 0 1.5%;
+}
+
+}
+
+.menu {
+    padding-right: 24px;
+}
+
+.aktulnosci {
+    background-color: white;
+    min-height: 200px;
+    top:0;
+    width: 100%;
+}
+main {
+    left:24%;
+    width: 50%;
 }
