@@ -83,7 +83,7 @@ function renderuj_nawigacje() {
     tel.appendChild(but1);
     let but2 = document.createElement("div");
     but2.id = "pow_tel";
-    but2.style.left = "40%";
+    but2.style.left = "48%";
     but2.className = "wiadomosci_ikonka";
     but2.innerHTML = "&#128240;";
 
@@ -93,6 +93,20 @@ function renderuj_nawigacje() {
     but2.appendChild(licznik_wiad);
 
     tel.appendChild(but2);
+
+    /** */
+    let hamburger = document.createElement("div");
+    hamburger.appendChild(document.createElement("div"));
+    hamburger.appendChild(document.createElement("div"));
+    hamburger.appendChild(document.createElement("div"));
+    hamburger.id = "hamburger";
+    hamburger.addEventListener("click",() => {
+        document.querySelector(".komputer").classList.toggle("widocznoscz");
+    });
+    tel.appendChild(hamburger);
+
+
+    /** */
     menu.appendChild(tel);
 
     let div_komp = document.createElement("div");
@@ -100,7 +114,18 @@ function renderuj_nawigacje() {
 
     let men_opcje = document.createElement("div");
     men_opcje.className = "menu_opcje";
-
+    /* */
+    let zamknij_menu_tel =  document.createElement("div");
+    zamknij_menu_tel.innerHTML = "X";
+    zamknij_menu_tel.style.background = "none";
+    zamknij_menu_tel.style.fontSize ="48px";
+    zamknij_menu_tel.style.margin = "24px";
+    zamknij_menu_tel.className = "zamknij";
+    zamknij_menu_tel.addEventListener("click",()=> {
+        document.querySelector(".komputer").classList.toggle("widocznoscz");
+    });
+    men_opcje.appendChild(zamknij_menu_tel);
+    /** */
     div_komp.appendChild(men_opcje);
     menu.appendChild(div_komp);
 
@@ -120,7 +145,7 @@ function renderuj_menu() {
         ["powiad_przycisk", "Powiadomienia", "powiadomienia"],
         ["pilne_przycisk", "Pilne wiadomości", "pilne_wiad"],
         ["wiad_przycisk", "Wiadomości", "wiadomosci"],
-        ["dodawanie_posta", "Dodaj posta"],
+        ["dodawanie_posta", "Dodaj artykuł"],
         [" ", "Mój profil"],
         [" ", "Ustawienia"],
         [" ", "Więcej"],
@@ -218,6 +243,7 @@ function zmienlupe() {
 function zmienikony() {
     document.getElementById("wiadomosci_tel").classList.toggle("wid");
     document.getElementById("pow_tel").classList.toggle("wid");
+    document.getElementById("hamburger").classList.toggle("wid");
 }
 /*******/
 
@@ -299,7 +325,7 @@ function renderuj_wstawianie_nowy_post() {
     let tytul_post = document.createElement("div");
     tytul_post.style.borderBottom = "1px silver solid";
     tytul_post.style.padding = "4px";
-    tytul_post.innerHTML = " &#128196; Utwórz post";
+    tytul_post.innerHTML = " &#128196; Utwórz nowy artykuł";
     let zamk = document.createElement("button");
     zamk.className = "zamknij";
     zamk.innerText = "X";
@@ -474,4 +500,6 @@ function renderuj_glowne() {
 
 function prawa_burta() {
     const prawa_burta = body.appendChild(document.createElement("aside"));
+    prawa_burta.id = "prawa_burta";
+
 }
