@@ -723,7 +723,7 @@ body::-webkit-scrollbar {
 .zamknij {
     position: absolute;
     right: 0;
-    top: 1px;
+    top: 0px;
     background-color: rgb(56, 55, 55);
     border:0;
     font-size: 28px;
@@ -830,7 +830,7 @@ option {
     text-align: left;
     border-radius: 8px;
     margin:16px;
-    min-height: 48px;
+    /* min-height: 48px; */
 }
 
 .dodaj_do_posta_opcje {
