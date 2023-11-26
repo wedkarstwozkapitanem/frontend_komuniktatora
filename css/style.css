@@ -135,9 +135,7 @@ body::-webkit-scrollbar {
     .wyszukaj {
         top: 2px;
     }
-    #wyszukaj {
-        /* top:64px; */
-    }
+
     .wszystkie {
         left:0 !important;
     }
