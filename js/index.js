@@ -54,7 +54,7 @@ function renderuj_nawigacje() {
     input.id = "wyszukiwarka";
     input.setAttribute("placeholder", "Szukaj w pixi");
 
-    input.addEventListener("click", () => {
+    input.addEventListener("focus", () => {
         if (window.innerWidth >= 943) !szukanie_live ? document.getElementById("lupka").click() : "";
     });
 
@@ -233,7 +233,6 @@ function nowy_dym_wysz() {
                         okno,
                         "#wyszukaj h2 button"
                     );
-                    
             }
         }
     });
