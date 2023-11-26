@@ -25,10 +25,23 @@ let czy_wstawiano_post = false;
 let licznik_zdjec = 0;
 /*****/
 
+(function renderowanie_strony_glownej() {
+    window.onload = () => {
+        renderuj_nawigacje();
+        renderuj_glowne();
+        prawa_burta();
+        body.removeChild(ladowanie);
+        nowe_posty();
+    }
+})();
+
 
 function przelodwanie() {
     document.location.reload();
 }
+
+
+
 
 function renderuj_nawigacje() {
     let nav = document.createElement("nav");
@@ -55,8 +68,13 @@ function renderuj_nawigacje() {
     input.setAttribute("placeholder", "Szukaj w pixi");
 
     input.addEventListener("focus", () => {
-        if (window.innerWidth >= 943) !szukanie_live ? document.getElementById("lupka").click() : "";
+        if(!szukanie_live){
+        if (window.innerWidth >= 943) !szukanie_live ?  pole_wyszukiwania() : "";
+        szukanie_live = true;
+        }
     });
+
+
 
     form.appendChild(input);
     wyszuk.appendChild(form);
@@ -64,7 +82,7 @@ function renderuj_nawigacje() {
     let lup = document.createElement("button");
     lup.id = "lupka";
     lup.innerHTML = "&#128270;";
-    lup.addEventListener("click", zmienlupe); //
+  //  lup.addEventListener("click", zmienlupe); //
     wyszuk.appendChild(lup);
 
     let tel = document.createElement("div");
@@ -212,9 +230,9 @@ function nowy_dym_wysz() {
 
         //  okno.addEventListener('focus', () => {!szukanie.live ? lup.click() : "";});
         // okno.addEventListener("blur", () => (!szukanie.live ? lup.click() : "")); //
-        if (typeof (document.getElementById("lupka")) !== 'undefined') {
+      /*  if (typeof (document.getElementById("lupka")) !== 'undefined') {
             okno.addEventListener("click", () => (!szukanie.live ? document.getElementById("lupka") : "")); //
-        }
+        }*/
         for (let i = 0; i < 4; i++) {
             let znajomy = document.createElement("div");
             znajomy.classList = "powiadomienie powiad_load";
@@ -240,6 +258,7 @@ function nowy_dym_wysz() {
     renderuj_menu();
 }
 
+
 function zmienlupe() {
    // document.getElementById("wyszukiwarka").classList.toggle("widocznosc");
    // document.getElementById("lupka").classList.toggle("aktywnalupa");
@@ -262,6 +281,7 @@ function aktywnedymki() {
 }
 
 function zmieniajdymki(przycisk, dymek, zamknij) {
+    if(przycisk) {
     przycisk.addEventListener("click", () => {
         aktywny_dymek != null ? (aktywny_dymek != dymek ? aktywnedymki() : "") : "";
         przycisk.classList.toggle("aktywny_przycisk");
@@ -283,7 +303,9 @@ function zmieniajdymki(przycisk, dymek, zamknij) {
             aktywny_dymek = null;
             aktywnyprzycik = null;
         }
+        szukanie_live = false;
     });
+}
     if (zamknij) {
         document.querySelector(zamknij).addEventListener("click", () => {
             aktywnedymk = false;
@@ -315,6 +337,35 @@ function zmieniajdymki(przycisk, dymek, zamknij) {
                });
            }*/
 }
+
+function pole_wyszukiwania() {
+    //aktywny_dymek != null ? (aktywny_dymek != dymek ? aktywnedymki() : "") : "";
+    if(aktywny_dymek != null && aktywny_dymek != document.getElementById("wyszukaj")) {
+        aktywny_dymek.classList.toggle("widocznosc");
+        aktywnyprzycik.classList.toggle("aktywny_przycisk");
+    }
+    document.getElementById("wyszukaj").classList.toggle("widocznosc");
+    if (przycisk.id === "wiadomosci_tel") {
+        document
+            .getElementById("wiad_przycisk")
+            .classList.remove("aktywny_przycisk");
+    }
+    if (przycisk.id === "pow_tel") {
+        document
+            .getElementById("powiad_przycisk")
+            .classList.remove("aktywny_przycisk"); //
+    }
+    if (aktywny_dymek != document.getElementById("wyszukaj")) {
+        document.getElementById("lupka").classList.toggle("aktywny_przycisk");
+        aktywny_dymek = document.getElementById("wyszukaj");
+        aktywnyprzycik = document.getElementById("lupka");
+    } else {
+        aktywny_dymek = null;
+        aktywnyprzycik = null;
+    }
+    szukanie_live = false;
+}
+
 
 function renderuj_wstawianie_nowy_post() {
     document
@@ -492,25 +543,171 @@ function renderuj_wstawianie_nowy_post() {
     czy_wstawiano_post = true;
 }
 
-(function renderowanie_strony_glownej() {
-    window.onload = () => {
-        renderuj_nawigacje();
-        renderuj_glowne();
-        prawa_burta();
-        body.removeChild(ladowanie);
-    }
-})();
 
+function loader_post(loader) {
+    loader.innerHTML += `
+    <article>
+        <div class="post">
+        <div class="post_informacje"><div style="width:58px;height:58px;border:1px solid black;border-radius:50%;background:black;animation:miganie 4s infinite;float:left"></div><div class="post_imie" style="background:black;width:50%;height:48px;left:12%;top:4px;animation:miganie 2s infinite;"></div></div>
+        <div class="post_tresc" style="background:black;height:48px;;animation:miganie 2s infinite;"></div>
+        </div>
+    </article>   
+    `;
+}
 
 function renderuj_glowne() {
     const glowna = body.appendChild(document.createElement("main"));
-    let aktulnosci = document.createElement("div");
-    aktulnosci.className = "aktulnosci";
+    const aktulnosci = document.createElement("div");
+    aktulnosci.id = "aktulnosci";
     glowna.appendChild(aktulnosci);
+    const loader = document.createElement("div");
+
+    loader_post(loader)
+    loader_post(loader)
+    glowna.appendChild(loader);
 }
 
 function prawa_burta() {
     const prawa_burta = body.appendChild(document.createElement("aside"));
     prawa_burta.id = "prawa_burta";
+
+}
+
+
+
+
+
+function nowe_posty() {
+    gdzie = document.getElementById("aktulnosci");
+    const danenowyposta = [{"idp":"118","iduzytkownika":"2","tresc":"pixel","foty":"","datadodania":"2023-11-26 12:01:14","publiczny":"1","id":"2","imie":"Dominik","nazwisko":"Kapitan","profilowe":"","folder":"dominik_kapitan_2","licznikpolubien":0,"licznikomentarzy":0,"polubiono":false,"czymoj":true}]
+
+    if(danenowyposta.length > 0) {
+        for (let i = 0; i < danenowyposta.length; i++) {
+        const danenowypost = danenowyposta[i];
+        const artykul = document.createElement('article');
+        const dodawanie_nowego_artykulu = gdzie.appendChild(artykul);
+        const nowy_post_dodaj = document.createElement('div');
+        nowy_post_dodaj.dataset.postid = danenowypost.idp;
+        nowy_post_dodaj.className = "post";
+        const nowy_postp = dodawanie_nowego_artykulu.appendChild(nowy_post_dodaj);
+        const post_info = document.createElement('div');
+        post_info.className = "post_informacje";
+        const post_informacja = nowy_postp.appendChild(post_info);
+
+        const tworzenielinku = document.createElement("a");
+        tworzenielinku.href = `/profil/${danenowypost.iduzytkownika}`;
+        tworzenielinku.style.zIndex = 12;
+        const link_do_profilu = post_informacja.appendChild(tworzenielinku);
+
+        const nazwa = link_do_profilu.appendChild(document.createElement('div'));
+
+        nazwa.innerHTML += danenowypost.profilowe !== "" && danenowypost.profilowe !== "uzytkownik.gif" ? `<img loading="lazy" src="/../foty/${danenowypost.folder}/profilowe/${danenowypost.profilowe}" alt="profilowe" />` : `<img loading="lazy"  src="foty/uzytkownik.png" alt="profilowe" />`;
+
+
+        post_informacja.innerHTML += `
+                          <a href="/profil/${danenowypost.iduzytkownika}">    <div class="post_imie">${danenowypost.imie}  ${danenowypost.nazwisko} </div></a>
+                          
+                          <div class="post_data"><a href="/profil/${danenowypost.iduzytkownika}/post/${danenowypost.idp}"><time>${danenowypost.datadodania}</time></a><button style="border-radius:8px;margin: 2px 0 0 8px;background:silver;">Dodał/a posta</button></div>
+                          <div class="opcjeposta opcjeposta_usuwanie wysrodkowanie" onclick="menuposta(this)" data-postid="${danenowypost.idp}"><span style="top:-10px;">...</span></div>`;
+        const pmenu_posta_opcje = document.createElement("div");
+        pmenu_posta_opcje.className = "menu_posta_opcje";
+        pmenu_posta_opcje.style.display = "none";
+        pmenu_posta_opcje.dataset.opcje_posta = danenowypost.idp;
+        let menu_opcje_akcja = post_informacja.appendChild(pmenu_posta_opcje);
+        if (danenowypost.czymoj === false) {
+            menu_opcje_akcja.innerHTML += `<button>Zgłoś</button>
+                          <button>Zapisz</button>`;
+        } else {
+            if (danenowypost.foty !== "") menu_opcje_akcja.innerHTML += `<button onclick="zaktalizuj_profilowe(${danenowypost.idp})">Zaktalizuj profilowe tym zdjeciem</button>`;
+            menu_opcje_akcja.innerHTML += `<button onclick="usunposta(${danenowypost.idp})">Usuń</button>`;
+        }
+
+        let tresc = document.createElement('div');
+        tresc.className = 'post_tresc';
+
+        let trescposta = danenowypost.tresc.replaceAll('\n', '<br>');
+        tresc.innerHTML = trescposta;
+        let tresc_posta = nowy_postp.appendChild(tresc);
+
+        if (danenowypost.foty != "") {
+            post_zdjecia = document.createElement("div");
+            post_zdjecia.className = "post_zdjecia"
+            let tresc_fota = tresc_posta.appendChild(post_zdjecia);
+            tresc_fota.innerHTML += `<img loading="lazy" src="/foty/${danenowypost.folder}/posty/${danenowypost.foty}" alt="zdjecie posta"/>`;
+        }
+
+
+
+
+        dol_posta = document.createElement('div');
+        dol_posta.className = "licznik_posta";
+        dol = nowy_postp.appendChild(dol_posta);
+
+
+
+        if (danenowypost.licznikpolubien >= 2) dol.innerHTML += `<div  onclick="pokaz_kto_polubil(this)" class="licznik_polubien" data-postidlicznikpolubien="${danenowypost.idp}"><span>${danenowypost.licznikpolubien}</span><span class="polubienie"> polubienia</span></div>`;
+        else if (danenowypost.licznikpolubien) dol.innerHTML += `<div  onclick="pokaz_kto_polubil(this)" class="licznik_polubien" data-postidlicznikpolubien="${danenowypost.idp}"><span>1</span><span class="polubienie"> polubienie</span></div>`;
+        else if (!danenowypost.licznikpolubien) dol.innerHTML += `<div  onclick="pokaz_kto_polubil(this)" class="licznik_polubien" data-postidlicznikpolubien="${danenowypost.idp}"><span></span><span class="polubienie"> Brak polubień</span></div>`;
+
+
+        if (!danenowypost.licznikomentarzy) dol.innerHTML += `<div class="licznik_komentarzy" onclick="pokazkomentarze(this)" data-postid="${danenowypost.idp}"><span data-postid-licznikomentarzyp="${danenowypost.idp}"></span><span data-postid-licznikomentarzy="${danenowypost.idp}"> Brak komentarzy</span></div>`;
+        else if (danenowypost.licznikomentarzy === 1) dol.innerHTML += `<div class="licznik_komentarzy" onclick="pokazkomentarze(this)" data-postid="${danenowypost.idp}"><span data-postid-licznikomentarzyp="${danenowypost.id}">1</span><span data-postid-licznikomentarzy="${danenowypost.idp}"> komentarz</span></div>`;
+        else dol.innerHTML += `<div class="licznik_komentarzy" onclick="pokazkomentarze(this)" data-postid="${danenowypost.idp}"><span data-postid-licznikomentarzyp="${danenowypost.idp}">${danenowypost.licznikomentarzy}</span><span data-postid-licznikomentarzy="${danenowypost.idp}"> komentarze</span></div>`;
+
+
+        dol.innerHTML += `<div class="licznik_udustepnien"><span>${0}</span> udostępnienia</div>`;
+
+
+        let akcje = document.createElement('div');
+        akcje.className = 'post_akcja srodkowanie';
+        let akcje_posta = nowy_postp.appendChild(akcje);
+
+
+
+
+
+        /*      let przyciskpolub = document.createElement('button');
+              przyciskpolub.dataset.postid = danenowypost.id;
+              if(!danenowypost.polubiono) przyciskpolub.innerText =  'đđťpolub';
+              else przyciskpolub.innerText = 'đđťpolubiĹem';
+              let przycisk_polub_klik = akcje_posta.appendChild(przyciskpolub);
+              przycisk_polub_klik.onclick = polubposta;
+  */
+        if (!danenowypost.polubiono) akcje_posta.innerHTML += `<button data-postid="${danenowypost.idp}" onclick="polubposta(this)">polub</button>`;
+        else akcje_posta.innerHTML += `<button class="polubione" data-postid="${danenowypost.idp}" onclick="polubposta(this)">polubiłem</button>`;
+
+        akcje_posta.innerHTML += `<button onclick="pokazkomentarze(this)" data-postid="${danenowypost.idp}">Komentarze</button><button data-postid="${danenowypost.idp}">udustępnij</button>`;
+
+        let post_komentarze = document.createElement('div');
+        post_komentarze.className = "post_komentarze";
+        let post_kom_dodaj = nowy_postp.appendChild(post_komentarze);
+
+
+        post_kom_dodaj.innerHTML += `<div style="margin-left:auto;margin-right:auto;"><div class="dodaj_komentarz_profilowe"><img loading="lazy" src='foty/uzytkownik.png' alt='profilowe' /></div>`;
+
+
+        post_kom_dodaj.innerHTML += `
+      <form onsubmit="return false">
+      <input type="text" placeholder="Skomentuj ten wpis" data-postid-kom="${danenowypost.idp}" />
+      <div style="float:right;">
+      <label>
+          <div data-postid-kom="${danenowypost.idp}" class="dodaj_komentarz" title="wyślij komentarz"><img loading="lazy" src="/foty/wyslij.png" alt="dodaj_komentarz"></div>
+          <input data-postid-kom="${danenowypost.idp}" onclick="dodajkomentarza(this)" style="display:none" type="submit" hidden />
+      </label>
+      </div>
+      </form>
+      </div>
+      <div data-postid-pokakom="${danenowypost.idp}" class="komentarze_post wysrodkuj" style="display: none;">
+`;
+    }
+    } else {
+        if(document.getElementById("aktulnosci").innerText.trim() !== "") {
+        gdzie.innerHTML += "<div class='wszyatkonadzis'>To już wszystko na dziś</div>"; 
+        } else {
+            document.getElementById("aktulnosci").innerHTML += "<div class='wszyatkonadzis'>Nie ma nic dzisiaj do wyświetlenia zajrzyj tutaj później</div>";
+        }
+       // window.removeEventListener('scroll', pobieraniepostascrol);
+    }
+
 
 }

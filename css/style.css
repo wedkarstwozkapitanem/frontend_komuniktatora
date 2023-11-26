@@ -106,7 +106,8 @@ body::-webkit-scrollbar {
     top:0;
     z-index: 8;
     animation: 1s pokazmenu ease;
-    text-align: start;
+    /* text-align: start; */
+     z-index: 48; 
 }
 
 .menu h1 {
@@ -150,7 +151,7 @@ body::-webkit-scrollbar {
         display: block !important;
     }
     .komputer {
-        z-index: 28;
+        z-index: 29;
         background: black;
         top: -10px;
         display: none !important;
@@ -883,11 +884,14 @@ opacity: 0.4;
 
 .powiadomienia,.nowy_post {
     box-shadow: 0 0 1px green, 0 0 12px silver;
-    z-index: 28;
+    z-index: 30;
 }
 
 
 @media screen and (max-width: 943px) {
+    .menu_opcje {
+        height: 100vh;
+    }
     .nowy_post {
         font-size: 28px;
         text-align: left;
@@ -909,8 +913,10 @@ opacity: 0.4;
     margin: 2px 1% 0 1.5%;
 }
 main {
-    width: 100% !important;
+    width: 99% !important;
     left:0 !important;
+    margin-left:auto !important;
+    margin-right: auto !important;
 }
 #prawa_burta {
     display: none;
@@ -920,16 +926,21 @@ main {
 
 .menu {
     padding-right: 24px;
+    z-index: 28;
+}
+.menu_opcje {
+    z-index: 50;
 }
 
-.aktulnosci {
+#aktulnosci {
     min-height: 200px;
-    top:0;
+    margin-top:100px;
     width: 100%;
 }
 main {
-    left:24%;
-    width: 50%;
+    left: 23%;
+    width: 51%;
+    margin-bottom: 100px;
 }
 
 

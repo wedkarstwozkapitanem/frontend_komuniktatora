@@ -1,0 +1,526 @@
+/*post*/
+
+article {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-top: 48px;
+}
+
+.post {
+    position: relative;
+    width: 100%;
+    background: rgba(45, 45, 46, 0.458);
+    min-height: 148px;
+    border-radius: 8px;
+    box-shadow: 0 0 1px #e3fffc;
+    word-break: break-word;
+}
+
+
+
+.post_informacje {
+    position: relative;
+    width: 98%;
+    min-height: 60px;
+    border-radius: 8px;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    top:4px;
+}
+
+.post_informacje img {
+    height: 58px;
+    width: 58px;
+    border-radius: 48px;
+    float: left;
+    border: 1px solid black;
+    z-index: 12;
+}
+
+.post_imie {
+    left: 10px;
+    text-shadow: 0 0 1px black;
+    font-size: 28px;
+    color: white;
+}
+
+.post_data {
+    left: 10px;
+    font-size: 16px;
+}
+
+.post_data a {
+    font-size: 12px;
+    color: #c0c0c07d;
+    font-weight: 100;
+    display: inline;
+}
+
+.post_data a:hover {
+    text-decoration: underline;
+}
+
+.post_tresc {
+    margin: 20px;
+    text-align: center;
+    font-size: 28px;
+    text-shadow: 0 0 1px black;
+}
+
+.post_zdjecia {
+    position: relative;
+    width: 100%;
+    margin-top: 24px;
+}
+.post_zdjecia img {
+    max-width: 100%;
+}
+
+
+.post_akcja {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post_akcja button {
+    background: rgba(0, 0, 255, 0.034);
+    color: whitesmoke;
+    width: 33%;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 26;
+}
+
+.post_akcja button:hover {
+    background: white;
+    color: blue;
+}
+
+@keyframes like {
+    0% {
+        font-size: 8px !important;
+    }
+    50% {
+        font-size: 30px;
+    }
+}
+
+.licznik_posta {
+    font-size: 15px;
+    color: silver;
+    width: 98%;
+    border-top: 1px dotted silver;
+    margin:8px auto 8px auto;
+    padding-top: 4px;
+}
+
+.licznik_polubien {
+    float: left;
+    cursor: pointer;
+    z-index: 12;
+    text-align: center;
+    width: 33%;
+}
+
+.licznik_polubien:hover {
+    text-decoration: underline;
+}
+
+.licznik_komentarzy {
+    text-align: center;
+    cursor: pointer;
+    width: 33%;
+    float: left;
+}
+
+.licznik_komentarzy:hover {
+    text-decoration: underline;
+}
+
+.licznik_udustepnien {
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+.licznik_udustepnien:hover {
+    text-decoration: underline;
+}
+
+
+.polubione {
+    background: blue !important;
+    color: wheat !important;
+    animation: like 1s ease;
+}
+
+.post_komentarze {
+    margin:10px auto 10px auto;
+    width: 98%;
+    border-top:1px dotted silver;
+}
+
+.post_komentarze input {
+    width: 80%;
+    height: 40px;
+    box-shadow: 0 0 1px #f0fdff;
+    border-radius: 28px;
+    background: #00000014;
+    border: 0;
+    font-size: 28px;
+    margin: 10px;
+    margin-left: 20px;
+    color: white;
+    display: inline;
+}
+@media  (max-width: 688px){
+    .post_komentarze input {
+        width: 60%;
+    }
+    .licznik_posta {
+        font-size: 12px;
+    }
+    .post_data a {
+        display: block;
+    }
+}
+.dodaj_komentarz {
+    cursor: pointer;
+    width: 48px;
+    height: 44px;
+    position: absolute;
+    z-index: 20;
+    right: -8px;
+    top:8px !important;
+    font-size: 24;
+}
+
+.dodaj_komentarz img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.komentarze_post {
+    width: 98%;
+    border-radius: 8px;
+    margin: 28px auto 24px auto;
+    padding-bottom: 10px;
+}
+
+
+.dodaj_komentarz_profilowe {
+    height: 56px;
+    width: 56px;
+    float: left;
+}
+
+.dodaj_komentarz_profilowe img {
+    width: 100%;
+    height: 100%;
+    border-radius: 88px;
+    margin: 4px;
+    border:1px solid black;
+}
+
+.komentarz_posta {
+    width: 100%;
+    min-height: 68px;
+    border-radius: 8px;
+    background: rgb(255 255 255 / 6%);
+    word-break: break-word;
+}
+
+.komentarze_post article {
+    margin: 4px !important;
+    width: 98% !important;
+    box-shadow: 0 0 1px silver;
+    border-radius:8px;
+}
+
+.komentarz_nazwa {
+    left: 10px;
+    font-size: 20px;
+    color: silver;
+}
+
+.komentarz_uzytkownik img {
+    width: 60px;
+    height: 60px;
+    border-radius: 48px;
+    float: left;
+    z-index: 28;
+    margin:4px;
+    box-shadow: 0 0 1px black;
+}
+
+.komentarz_tresc {
+    left: 10px;
+    font-size: 28px;
+    margin: 5px;
+    width: 95%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.opcjeposta {
+    float: right;
+    right: 0px;
+    top: 0px;
+    font-size: 40px;
+    position: absolute;
+    cursor: pointer;
+    height: 68px;
+    width: 68px;
+    border-radius: 28px;
+    font-family: fangsong;
+}
+
+.opcjeposta:hover {
+    background: silver;
+}
+
+
+.wszyatkonadzis {
+    font-size: 48px;
+    color: black;
+    text-shadow: 0 0 1px black;
+    animation:swiecocytekst 4s infinite;
+    margin-top:88px;
+    color:white;
+    word-break: break-word;
+    text-align: center;
+}
+
+@keyframes swiecocytekst {
+    0% {
+        text-shadow: 4px 4px 8px orange !important;
+    }
+    50% {
+        text-shadow: 0 0 4px orange !important;
+    }
+    80% {
+        text-shadow: 2px 2px 6px orange !important;
+    }
+}
+
+
+
+.wysrodkowanie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+
+.opcjeposta_usuwanie:hover{
+    background: silver;
+}
+
+
+.menu_posta_opcje {
+    position: absolute;
+right: 4px;
+z-index:24;
+margin-top:16px;
+}
+.menu_posta_opcje button {
+    width:100%;
+    background:silver;
+    font-size: 20px;
+    padding:8px;
+    border-radius:8px;
+    font-weight: 888;
+    cursor: pointer;
+    border:3px groove black;
+}
+.menu_posta_opcje button:hover {
+    background: white;
+}
+
+.dymek_polubiony {
+    background:#262121;
+    position: relative;
+    width: 48%;
+    border-radius: 8px;color:silver;font-size:40px;border:2px solid black;
+}
+
+
+.zamknij {
+    position: absolute;
+    right: 8px;
+    font-size: 38px;cursor:pointer;background:red;width:48px;height:48px;
+    top:0;
+}
+
+
+.kto_polubil_uzytkownik {
+    min-height:70px;border:1px solid wheat;border-radius:8px;margin:8px;
+}
+.kto_polubil_uzytkownik:hover {
+background: wheat;
+}
+
+.like_autor img {
+    width: 68px;
+    height: 68px;
+    float:left;border-radius:48px;
+    border:1px solid black;
+}
+
+.like_autor div {
+    top: 8px;
+    left: 10px;
+    color: #858585;
+}
+
+
+@media  screen and (max-width:888px){
+    .dymek_polubiony {
+        width: 100%;
+    }
+}
+
+
+
+
+
+.powiadomienia::-webkit-scrollbar {
+    width:10px;
+}
+.powiadomienia h4 {
+    font-size: 40px;
+}
+
+.powiadomienie {
+    text-align:left;width:96%;min-height:48px;border-radius:8px;font-size:20px;color:white;
+    margin:28px 4px 8px 12px; 
+}
+.powiadomienie:hover {
+    background:silver;
+}
+.powiadomienie_uzytkownik {
+    width:44px;height:44px;float:left;margin:1px;margin-right:8px;
+}
+.powiadomienie_uzytkownik img {
+    border-radius:28px;border:1px solid black;
+    width: 100%;
+    height: 100%;
+}
+.powiadomienie_data {
+    text-align:left;color:blue;font-size:12px;margin-left:10%;
+}
+#licznikpowiadomien {
+    position: absolute;
+top: 1px;
+background: blue;
+color: black;
+font-size: 28px;
+border: 1px solid black;
+border-radius: 28px;
+left: 40px;
+min-width: 28px;
+z-index: 12;
+text-align: center;
+}
+.niewys {
+    background: #c0c0c00a !important;
+}
+.niewys:hover {
+    background: silver !important;
+}
+
+@media (max-device-width: 888px) {
+    .powiadomienia {
+        width: 98% !important;
+        right: 4px !important;
+    }
+    .akcje_komentarz {
+        left:0 !important;
+    }
+}
+
+
+.akcje_komentarz {
+    display:flex;
+    left:10%;
+}
+.akcje_komentarz div {
+    margin-left:10px;
+    font-size:15px;
+    color: #646464c9;
+    cursor: pointer;
+}
+.akcje_komentarz div:hover {
+color:wheat;
+}
+
+.marginpost {
+    width:95%; 
+    margin-top:68px;
+}
+@media screen and (max-width:888px) {
+    .marginpost {
+        width: 98% !important;
+    }
+}
+
+#podglodfot img {
+width: 68px;
+height: 68px;
+box-shadow: 0 0 4px black;
+margin-left:8px;
+border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #434343;
+    border-radius: 16px;
+    box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%), inset -2px -2px 2px rgb(0 0 0 / 25%);
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+
+.kod_skrypt_posta {
+    background:black !important;
+}
+
+
+
+@keyframes miganie {
+    0%,100% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 20%;
+    }
+}
+
+
