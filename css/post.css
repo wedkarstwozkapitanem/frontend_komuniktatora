@@ -194,7 +194,7 @@ article {
 }
 .dodaj_komentarz {
     cursor: pointer;
-    width: 48px;
+    width:48px;
     height: 44px;
     position: absolute;
     z-index: 20;
@@ -325,12 +325,6 @@ article {
 
 
 
-.wysrodkowanie {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-}
 
 
 .opcjeposta_usuwanie:hover{
@@ -366,14 +360,6 @@ margin-top:16px;
 }
 
 
-.zamknij {
-    position: absolute;
-    right: 8px;
-    font-size: 38px;cursor:pointer;background:red;width:48px;height:48px;
-    top:0;
-}
-
-
 .kto_polubil_uzytkownik {
     min-height:70px;border:1px solid wheat;border-radius:8px;margin:8px;
 }
@@ -405,50 +391,6 @@ background: wheat;
 
 
 
-.powiadomienia::-webkit-scrollbar {
-    width:10px;
-}
-.powiadomienia h4 {
-    font-size: 40px;
-}
-
-.powiadomienie {
-    text-align:left;width:96%;min-height:48px;border-radius:8px;font-size:20px;color:white;
-    margin:28px 4px 8px 12px; 
-}
-.powiadomienie:hover {
-    background:silver;
-}
-.powiadomienie_uzytkownik {
-    width:44px;height:44px;float:left;margin:1px;margin-right:8px;
-}
-.powiadomienie_uzytkownik img {
-    border-radius:28px;border:1px solid black;
-    width: 100%;
-    height: 100%;
-}
-.powiadomienie_data {
-    text-align:left;color:blue;font-size:12px;margin-left:10%;
-}
-#licznikpowiadomien {
-    position: absolute;
-top: 1px;
-background: blue;
-color: black;
-font-size: 28px;
-border: 1px solid black;
-border-radius: 28px;
-left: 40px;
-min-width: 28px;
-z-index: 12;
-text-align: center;
-}
-.niewys {
-    background: #c0c0c00a !important;
-}
-.niewys:hover {
-    background: silver !important;
-}
 
 @media (max-device-width: 888px) {
     .powiadomienia {
@@ -485,13 +427,7 @@ color:wheat;
     }
 }
 
-#podglodfot img {
-width: 68px;
-height: 68px;
-box-shadow: 0 0 4px black;
-margin-left:8px;
-border-radius: 20px;
-}
+
 
 
 ::-webkit-scrollbar-thumb {

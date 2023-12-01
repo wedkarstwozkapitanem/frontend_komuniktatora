@@ -161,7 +161,7 @@ function renderuj_menu() {
     let menu_opcje = [
         ["aktywny_przycisk", "Strona główna"],
         ["powiad_przycisk", "Powiadomienia", "powiadomienia"],
-        ["pilne_przycisk", "Pilne wiadomości", "pilne_wiad"],
+     //   ["pilne_przycisk", "Pilne wiadomości", "pilne_wiad"],
         ["wiad_przycisk", "Wiadomości", "wiadomosci"],
         ["dodawanie_posta", "Dodaj artykuł"],
         [" ", "Mój profil"],
@@ -198,7 +198,7 @@ function renderuj_menu() {
 function nowy_dym_wysz() {
     let dymki = [
         ["powiadomienia", "powiad", "Moje powiadomienia", "pow_tel"],
-        ["pilne_wiad", "pilne_wiadom", "Pilne wiadomości"],
+      //  ["pilne_wiad", "pilne_wiadom", "Pilne wiadomości"],
         ["wiadomosci", "pilne_wiadom", "Wiadomości", "wiadomosci_tel"],
         ["wyszukaj", "wynik_wyszuk", "Wyniki wyszukiwania", "lupka"],
     ];
@@ -691,7 +691,7 @@ function nowe_posty() {
       <input type="text" placeholder="Skomentuj ten wpis" data-postid-kom="${danenowypost.idp}" />
       <div style="float:right;">
       <label>
-          <div data-postid-kom="${danenowypost.idp}" class="dodaj_komentarz" title="wyślij komentarz"><img loading="lazy" src="/foty/wyslij.png" alt="dodaj_komentarz"></div>
+          <div data-postid-kom="${danenowypost.idp}" class="dodaj_komentarz" title="wyślij komentarz"><img loading="lazy" src="foty/wyslij.png" alt="dodaj_komentarz"></div>
           <input data-postid-kom="${danenowypost.idp}" onclick="dodajkomentarza(this)" style="display:none" type="submit" hidden />
       </label>
       </div>
