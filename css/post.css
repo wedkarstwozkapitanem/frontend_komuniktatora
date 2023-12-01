@@ -293,12 +293,17 @@ article {
     width: 68px;
     border-radius: 28px;
     font-family: fangsong;
+    text-align: center;
 }
 
 .opcjeposta:hover {
     background: silver;
 }
-
+.opcjeposta span{
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
 
 .wszyatkonadzis {
     font-size: 48px;

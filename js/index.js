@@ -366,7 +366,7 @@ function pole_wyszukiwania() {
     szukanie_live = false;
 }
 
-
+const zdjecia_w_poscie = new Map();
 function renderuj_wstawianie_nowy_post() {
     document
         .getElementById("dodawanie_posta")
@@ -454,13 +454,31 @@ function renderuj_wstawianie_nowy_post() {
             // console.log(pliki.files[i].type);
 
             czytnik.onload = () => {
+                zdjecia_w_poscie.set(pliki.files[i].name + "__nr__" + licznik_zdjec,{
+                plik : pliki.files[i],
+                });
+    
                 const url = czytnik.result;
+                const foty = document.createElement("div");
+                const zamknij = document.createElement("div");
+                zamknij.innerText = "X";
+                zamknij.className = "wyrzuc_fote";
+                zamknij.addEventListener("click",(e) =>{
+                    if(zdjecia_w_poscie.has(pliki.files[i].name + "__nr__" + licznik_zdjec)) {
+                    zdjecia_w_poscie.delete(pliki.files[i].name + "__nr__" + licznik_zdjec);
+                    foty.remove();
+                    } else {
+                        alert("Wystąpił błąd")
+                    }
+                });
+                foty.appendChild(zamknij);
                 const nowe_foto = document.createElement("img");
                 nowe_foto.alt = "zdjęcie posta";
                 nowe_foto.src = url;
-                nowe_foto.dataset.nazwa_pliku = pliki.files[i].name + "__nr__" + licznik_zdjec;
-
-                podglad_zdjec.appendChild(nowe_foto);
+                foty.dataset.nazwa_pliku = pliki.files[i].name + "__nr__" + licznik_zdjec;
+   
+                foty.appendChild(nowe_foto)
+                podglad_zdjec.appendChild(foty);
             };
 
 
@@ -608,7 +626,7 @@ function nowe_posty() {
                           <a href="/profil/${danenowypost.iduzytkownika}">    <div class="post_imie">${danenowypost.imie}  ${danenowypost.nazwisko} </div></a>
                           
                           <div class="post_data"><a href="/profil/${danenowypost.iduzytkownika}/post/${danenowypost.idp}"><time>${danenowypost.datadodania}</time></a><button style="border-radius:8px;margin: 2px 0 0 8px;background:silver;">Dodał/a posta</button></div>
-                          <div class="opcjeposta opcjeposta_usuwanie wysrodkowanie" onclick="menuposta(this)" data-postid="${danenowypost.idp}"><span style="top:-10px;">...</span></div>`;
+                          <div class="opcjeposta opcjeposta_usuwanie wysrodkowanie" onclick="menuposta(this)" data-postid="${danenowypost.idp}"><span>...</span></div>`;
         const pmenu_posta_opcje = document.createElement("div");
         pmenu_posta_opcje.className = "menu_posta_opcje";
         pmenu_posta_opcje.style.display = "none";

@@ -723,7 +723,7 @@ body::-webkit-scrollbar {
 .zamknij {
     position: absolute;
     right: 0;
-    top: 0px;
+    top: -1px;
     background-color: rgb(56, 55, 55);
     border:0;
     font-size: 28px;
@@ -850,6 +850,7 @@ opacity: 0.4;
 }
 
 @media  screen and (max-width:554px){
+
     .dodaj_do_posta div {
         position: relative;
         display: flex;
@@ -890,6 +891,9 @@ opacity: 0.4;
 
 
 @media screen and (max-width: 943px) {
+    .zamknij {
+        top:-8px !important;
+    }
     .menu_opcje {
         height: 100vh;
     }
@@ -935,7 +939,7 @@ main {
 
 #aktulnosci {
     min-height: 200px;
-    margin-top: 28px;
+    margin-top: 68px;
     width: 100%;
 }
 main {
@@ -988,4 +992,30 @@ main {
     font-size: 24px;
     color: white;
     float: left;
+}
+
+
+#podglad_zdjec img {
+    box-shadow: 0 0 4px silver;
+}
+
+.wyrzuc_fote {
+    position: absolute;
+    right: 0;
+    background: black;
+    width: 48px;
+    height: 48ox;
+    height: 48px;
+    border-radius: 48px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 28;
+    cursor: pointer;
+    box-shadow: 0 0 4px silver;
+}
+
+.wyrzuc_fote:hover {
+    color:red;
 }
