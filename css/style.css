@@ -686,6 +686,7 @@ body::-webkit-scrollbar {
 #nowa_akcja {
     position: fixed;
     width: 100%;
+    overflow: f;
     height: 100%;
     background: rgba(0, 0, 0, 0.862);
     top:0;
@@ -870,6 +871,7 @@ opacity: 0.4;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    overflow: b;
 }
 #podglad_zdjec img {
     height: 200px;
@@ -946,6 +948,7 @@ main {
     left: 23%;
     width: 51%;
     margin-bottom: 100px;
+    margin-top: 48px;
 }
 
 
@@ -1018,4 +1021,31 @@ main {
 
 .wyrzuc_fote:hover {
     color:red;
+}
+
+
+.dodaj_prof,.dodaj_prof img {
+    width: 88px;
+    height: 88px;
+    border-radius: 48px;
+    position: absolute;
+}
+
+.co_slychac {
+    background-color: rgba(0, 0, 0, 0.277);
+    max-width:80%;
+    left: 15%;
+    text-align: left;
+    min-height: 40px;
+    box-shadow: 0 0 4px silver;
+    border-radius: 48px;
+    margin-top:12px;
+    font-size: 36px;
+    color:silver;
+    padding: 8px;
+    position: relative;
+    cursor:pointer;
+}
+.co_slychac:hover {
+   opacity: 0.4;
 }

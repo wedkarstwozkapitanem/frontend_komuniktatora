@@ -575,11 +575,11 @@ function loader_post(loader) {
 
 function renderuj_glowne() {
     const glowna = body.appendChild(document.createElement("main"));
+    dodawanie_postow();
     const aktulnosci = document.createElement("div");
     aktulnosci.id = "aktulnosci";
     glowna.appendChild(aktulnosci);
     const loader = document.createElement("div");
-
     loader_post(loader)
     loader_post(loader)
     glowna.appendChild(loader);
@@ -591,6 +591,19 @@ function prawa_burta() {
 
 }
 
+
+function dodawanie_postow() {
+    const div = document.createElement("div");
+    div.className = 'post';
+   
+    div.style.minHeight = "88px";
+    div.style.width = "98%"
+    div.style.padding = "8px";
+    div.innerHTML = `<div class="dodaj_prof" ><img loading="lazy" src="foty/uzytkownik.png" alt="profilowe"></div><div>
+    <div class="co_slychac">Co słychać Dominiku Kapitan?</div></div>`;
+    div.addEventListener("click",renderuj_wstawianie_nowy_post)
+    document.querySelector("main").appendChild(div);
+}
 
 
 
