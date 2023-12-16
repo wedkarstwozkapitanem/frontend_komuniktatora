@@ -893,6 +893,9 @@ opacity: 0.4;
 
 
 @media screen and (max-width: 943px) {
+    main {
+        margin-top:88px !important;
+    }
     .zamknij {
         top:-8px !important;
     }
